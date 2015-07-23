@@ -12,7 +12,7 @@ MAINTAINER Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
 # Add the ngix and PHP dependent repository
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
-# Installing nginx 
+# Installing nginx
 RUN yum -y install nginx
 
 # Installing PHP
@@ -35,11 +35,11 @@ ADD supervisord.conf /etc/
 # Adding the default file
 ADD index.php /var/www/index.php
 
+
 # Set up php.ini 
 RUN sed -ri 's/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR/g' /etc/php.ini
 
-
-# Set the port to 80 
+# Set the port to 80
 EXPOSE 80
 
 # Executing supervisord
