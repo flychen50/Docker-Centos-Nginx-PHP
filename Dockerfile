@@ -12,7 +12,7 @@ MAINTAINER Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
 # Add the ngix and PHP dependent repository
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
-# Installing nginx 
+# Installing nginx
 RUN yum -y install nginx
 
 # Installing PHP
@@ -22,7 +22,8 @@ RUN yum -y --enablerepo=remi,remi-php56 install nginx php-fpm php-common
 RUN yum install -y python-setuptools
 RUN easy_install pip
 RUN pip install supervisor
-
+RUN yum install -y  php-pecl-memcache
+RUN yum install -y  php-mysql
 
 # Adding the configuration file of the nginx
 ADD nginx.conf /etc/nginx/nginx.conf
@@ -34,7 +35,7 @@ ADD supervisord.conf /etc/
 # Adding the default file
 ADD index.php /var/www/index.php
 
-# Set the port to 80 
+# Set the port to 80
 EXPOSE 80
 
 # Executing supervisord
