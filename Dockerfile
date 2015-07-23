@@ -22,7 +22,8 @@ RUN yum -y --enablerepo=remi,remi-php56 install nginx php-fpm php-common
 RUN yum install -y python-setuptools
 RUN easy_install pip
 RUN pip install supervisor
-
+RUN yum install -y  php-pecl-memcache
+RUN yum install -y  php-mysql
 
 # Adding the configuration file of the nginx
 ADD nginx.conf /etc/nginx/nginx.conf
@@ -33,6 +34,10 @@ ADD supervisord.conf /etc/
 
 # Adding the default file
 ADD index.php /var/www/index.php
+
+# Set up php.ini 
+RUN sed -ri 's/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR/g' /etc/php.ini
+
 
 # Set the port to 80 
 EXPOSE 80
