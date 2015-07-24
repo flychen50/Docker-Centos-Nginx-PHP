@@ -1,6 +1,6 @@
-Created by Kaushal Kishore <br>
-Email : kaushal.rahuljaiswal@gmail.com<br>
-Website : http://www.kaushalkishore.com<br>
+Created by xinfeng <br>
+Email : flychen50@gmail.com<br>
+
 
 <h2>Dockerfile for creating docker image for Centos-Nginx-PHP (Centos, Nginx, PHP-FPM)</h2>
 
@@ -9,7 +9,7 @@ Website : http://www.kaushalkishore.com<br>
 <b>Step 1 :</b> Clone the Docker-Centos-Nginx-PHP.git
 <pre>
 <b>Command: </b>
-git clone https://github.com/kaushalkishorejaiswal/Docker-Centos-Nginx-PHP.git
+git clone https://github.com/flychen50/Docker-Centos-Nginx-PHP.git
 </pre>
 
 <b>Step 2 :</b> Change the directory to the clone folder
